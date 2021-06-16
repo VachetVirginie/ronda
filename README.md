@@ -1,1 +1,1 @@
-# ronda
+[![Netlify Status](https://api.netlify.com/api/v1/badges/d2533d91-5e94-41f5-88a5-b3282524be01/deploy-status)](https://app.netlify.com/sites/ilovemamie/deploys)
