@@ -8,26 +8,47 @@
         @keyup="updateTeamName(newTeamName, index)"
       />
       <p class="score">{{ score }}</p>
-      <b-button class="btn btn-block mb-2" variant="success" @click="ronda(index)"
+      <b-button
+        class="btn btn-block mb-2"
+        variant="success"
+        @click="addPoints(index, 1)"
         >Ronda</b-button
       >
-      <b-button class="btn btn-block mb-2" variant="success" @click="tringla(index)"
+      <b-button
+        class="btn btn-block mb-2"
+        variant="success"
+        @click="addPoints(index, 3)"
         >Tringla</b-button
       >
-      <b-button class="btn btn-block mb-2" variant="success" @click="missa(index)"
+      <b-button
+        class="btn btn-block mb-2"
+        variant="success"
+        @click="addPoints(index, 1)"
         >Missa</b-button
       >
-      <b-button class="btn btn-block mb-2" variant="success" @click="pegar1(index)"
+      <b-button
+        class="btn btn-block mb-2"
+        variant="success"
+        @click="addPoints(index, 1)"
         >Taper 1</b-button
       >
-      <b-button class="btn btn-block mb-2" variant="success" @click="pegar2(index)"
+      <b-button
+        class="btn btn-block mb-2"
+        variant="success"
+        @click="addPoints(index, 2)"
         >Taper 2</b-button
       >
-      <b-button class="btn btn-block mb-2" variant="success" @click="pegar5(index)"
+      <b-button
+        class="btn btn-block mb-2"
+        variant="success"
+        @click="addPoints(index, 5)"
         >Taper 5</b-button
       >
     </div>
-    <b-button class="btn btn-block mb-2" variant="danger" @click="subtractPoint(index)"
+    <b-button
+      class="btn btn-block mb-2"
+      variant="danger"
+      @click="subtractPoint(index)"
       >Enlever 1 Point</b-button
     >
   </div>
@@ -35,16 +56,11 @@
 
 <script>
 export default {
-  name: 'Team',
+  name: "Team",
   props: {
     teamName: String,
     score: Number,
-    ronda: Function,
-    missa: Function,
-    tringla: Function,
-    pegar1: Function,
-    pegar2: Function,
-    pegar5: Function,
+    addPoints: Function,
     subtractPoint: Function,
     updateTeamName: Function,
     index: Number
@@ -52,9 +68,9 @@ export default {
   data() {
     return {
       newTeamName: this.teamName
-    }
+    };
   }
-}
+};
 </script>
 
 <style scoped>

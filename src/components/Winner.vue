@@ -8,12 +8,12 @@
 
 <script>
 export default {
-  name: 'Winner',
+  name: "Winner",
   props: {
     winningTeamName: String,
     resetGame: Function
   }
-}
+};
 </script>
 
 <style scoped>

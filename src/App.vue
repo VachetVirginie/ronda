@@ -7,12 +7,7 @@
         :key="index"
         :teamName="team.teamName"
         :score="team.score"
-        :ronda="ronda"
-        :missa="missa"
-        :tringla="tringla"
-        :pegar1="pegar1"
-        :pegar2="pegar2"
-        :pegar5="pegar5"
+        :addPoints="addPoints"
         :subtractPoint="subtractPoint"
         :updateTeamName="updateTeamName"
         :index="index"
@@ -28,12 +23,12 @@
 </template>
 
 <script>
-import Header from './components/Header.vue'
-import Team from './components/Team.vue'
-import Winner from './components/Winner.vue'
+import Header from "./components/Header.vue";
+import Team from "./components/Team.vue";
+import Winner from "./components/Winner.vue";
 
 export default {
-  name: 'app',
+  name: "app",
   components: {
     Header,
     Team,
@@ -43,68 +38,49 @@ export default {
     return {
       teams: [
         {
-          teamName: 'Mamie',
+          teamName: "Mamie",
           score: 0
         },
         {
-          teamName: 'Joueur2',
+          teamName: "Joueur2",
           score: 0
         }
       ],
-      newTeam: ''
-    }
+      newTeam: ""
+    };
   },
   methods: {
-    ronda(index) {
-      this.teams[index].score++
-    },
-    missa(index) {
-      this.teams[index].score++
-    },
-    tringla(index) {
-      this.teams[index].score += 3;
-    },
-    pegar1(index) {
-      this.teams[index].score++
-    },
-    pegar2(index) {
-      this.teams[index].score += 2;
-    },
-    pegar5(index) {
-      this.teams[index].score += 5;
+    addPoints(index, points) {
+      this.teams[index].score += points;
     },
     subtractPoint(index) {
-      if (this.teams[index].score > 0) this.teams[index].score--
-    },
-    createNewTeam() {
-      this.teams.push({ teamName: this.newTeam, score: 0 })
-      this.newTeam = ''
+      if (this.teams[index].score > 0) this.teams[index].score--;
     },
     updateTeamName(newTeamName, index) {
-      this.teams[index].teamName = newTeamName
+      this.teams[index].teamName = newTeamName;
     },
     resetGame() {
-      this.teams.forEach(team => (team.score = 0))
+      this.teams.forEach(team => (team.score = 0));
     }
   },
   computed: {
     isWinnerModalVisible() {
-      return this.teams.some(team => team.score > 20 )
+      return this.teams.some(team => team.score > 20);
     },
     winningTeamName() {
-      let highestScore = 0
+      let highestScore = 0;
       this.teams.forEach(team =>
         team.score > highestScore ? (highestScore = team.score) : highestScore
-      )
-      return this.teams.find(team => team.score === highestScore).teamName
+      );
+      return this.teams.find(team => team.score === highestScore).teamName;
     }
   }
-}
+};
 </script>
 
 <style>
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  font-family: "Avenir", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
