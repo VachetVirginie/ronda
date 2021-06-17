@@ -12,7 +12,7 @@ export default {
 
 <style scoped>
 div {
-  background-color: #eee;
+  background-color: #F6E056;
 }
 
 h1 {
